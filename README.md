@@ -3,7 +3,7 @@
 &nbsp; Desktop application that creates charts and diagrams based on lyrics
 <br />
 
-<img src="res/examples/use.gif" width=600>
+<img src="res/use.gif" width=600>
 
 ## Usage
 ### Adding Music
