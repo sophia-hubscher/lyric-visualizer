@@ -1,6 +1,6 @@
 # Lyric Visualizer
 
-&nbsp; A desktop application that creates charts and diagrams based on lyrics
+&nbsp; Desktop application that creates charts and diagrams based on lyrics
 <br />
 
 <img src="res/examples/use.gif" width=600>
