@@ -20,15 +20,15 @@ public class Display extends JPanel implements MouseMotionListener, MouseListene
     Color   currentColor;
     Color   highlightColor;
     Color   BACKGROUND = new Color(0,   43,  54);
-    Color   PINK      = new Color(211, 54,  130);
-    Color   RED       = new Color(220, 50,  47);
-    Color   ORANGE    = new Color(203, 75,  22);
-    Color   YELLOW    = new Color(181, 137, 0);
-    Color   GREEN     = new Color(133, 153, 0);
-    Color   CYAN      = new Color(42,  161, 152);
-    Color   BLUE      = new Color(38,  139, 210);
-    Color   MAGENTA   = new Color(108, 113, 196);
-    Color[] allColors = {PINK, RED, ORANGE, YELLOW, GREEN, CYAN,
+    Color   PINK       = new Color(211, 54,  130);
+    Color   RED        = new Color(220, 50,  47);
+    Color   ORANGE     = new Color(203, 75,  22);
+    Color   YELLOW     = new Color(181, 137, 0);
+    Color   GREEN      = new Color(133, 153, 0);
+    Color   CYAN       = new Color(42,  161, 152);
+    Color   BLUE       = new Color(38,  139, 210);
+    Color   MAGENTA    = new Color(108, 113, 196);
+    Color[] allColors  = {PINK, RED, ORANGE, YELLOW, GREEN, CYAN,
                          BLUE, MAGENTA};
 
     FileProcessor fp    = new FileProcessor();
@@ -64,7 +64,7 @@ public class Display extends JPanel implements MouseMotionListener, MouseListene
      */
     public Display(int width, int height, String fontName)
     {
-        this.width = width;
+        this.width  = width;
         this.height = height;
 
         addMouseMotionListener(this);
@@ -83,7 +83,7 @@ public class Display extends JPanel implements MouseMotionListener, MouseListene
         setBarColors(); //sets color of repetition bar
 
         //set stats
-        posPercent   = stats.getPositivePercentage(allWords);
+        posPercent = stats.getPositivePercentage(allWords);
         swearPercent = stats.getTypePercentage(allWords,
                     "res/statsText/swearWords", 2200.0);
         lovePercent = stats.getTypePercentage(allWords,
@@ -99,7 +99,7 @@ public class Display extends JPanel implements MouseMotionListener, MouseListene
         topWords = fp.getWordFrequencies(song.lyrics);
 
         //resets x location of bar
-        barXLoc = - (allWords.length * 8) + width - 440;
+        barXLoc = -(allWords.length * 8) + width - 440;
     }
 
     /**
@@ -143,8 +143,8 @@ public class Display extends JPanel implements MouseMotionListener, MouseListene
             title += " (♬)";
 
         //draws title
-        highlightColor = new Color(song.getGenreColor()[0], song.getGenreColor()[1],
-                song.getGenreColor()[2]);
+        highlightColor = new Color(song.getGenreColor()[0],
+                song.getGenreColor()[1], song.getGenreColor()[2]);
         g.setFont(titleFont);
         g.setColor(highlightColor);
         //title highlight offset and in background
@@ -154,14 +154,10 @@ public class Display extends JPanel implements MouseMotionListener, MouseListene
 
         //draws all bars
         //mood bar - swear bar - romanticism bar - length bar
-        drawBar(g, RED,         GREEN,   posPercent,     20,
-                106, false);
-        drawBar(g, Color.BLACK, MAGENTA, swearPercent,   160,
-                106, true);
-        drawBar(g, Color.BLACK, PINK,    lovePercent,    20,
-                346, true);
-        drawBar(g, Color.BLACK, YELLOW,  relativeLength, 160,
-                346, true);
+        drawBar(g, RED, GREEN, posPercent, 20, 106, false);
+        drawBar(g, Color.BLACK, MAGENTA, swearPercent, 160, 106, true);
+        drawBar(g, Color.BLACK, PINK, lovePercent, 20, 346, true);
+        drawBar(g, Color.BLACK, YELLOW, relativeLength, 160, 346, true);
 
         //draws all circles
         //repetition circle
@@ -183,6 +179,8 @@ public class Display extends JPanel implements MouseMotionListener, MouseListene
         //draws bar and circle label text
         g.setColor(Color.WHITE);
         g.setFont(italicLabelFont1);
+        
+        //draw the text
         g.drawString("Mood", 38,  317);
         g.drawString("#@$%", 177, 317);
         g.setFont(plainLabelFont);
@@ -473,9 +471,9 @@ public class Display extends JPanel implements MouseMotionListener, MouseListene
         }
     }
 
-    public void mouseExited (MouseEvent e) {}
-    public void mouseDragged (MouseEvent e) {}
-    public void mousePressed (MouseEvent e) {}
-    public void mouseEntered (MouseEvent e) {}
+    public void mouseExited   (MouseEvent e) {}
+    public void mouseDragged  (MouseEvent e) {}
+    public void mousePressed  (MouseEvent e) {}
+    public void mouseEntered  (MouseEvent e) {}
     public void mouseReleased (MouseEvent e) {}
 }
